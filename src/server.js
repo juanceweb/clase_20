@@ -6,6 +6,7 @@ import session from "express-session"
 import AuthRouter from "./routers/auth_route.js"
 import passport from "./utils/passport_util.js"
 import "./config/db.js"
+import args from "./utils/minimist_util.js"
 
 
 
@@ -28,7 +29,7 @@ app.use(
     session({
         secret: process.env.SECRET,
         cookie: {
-            maxAge: 300000,
+            maxAge: Number(process.env.EXPIRE),
         },
         rolling: true,
         resave: true,
@@ -39,7 +40,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use("/", AuthRouter)
 
-const PORT = process.env.PORT || 8000
+const PORT = args.PORT || 8000
 const server = app.listen(PORT, () => {
 console.log(`Servidor en el puerto http://localhost:${PORT}`)
 });
