@@ -3,6 +3,7 @@ import passport from "../utils/passport_util.js"
 import * as AuthController from "../controlers/auth_controller.js"
 import * as AuthMiddleware from "../middlewares/auth_middleware.js"
 import args from "../utils/minimist_util.js"
+import { fork } from 'child_process'
 
 const router = express.Router();
 
@@ -40,6 +41,18 @@ router.get("/info", (req, res) => {
     let directorio = process.cwd()
     res.status(200).json({"Argumentos": args, "Sistema Operativo" : sistema, "Version de Node": version, "Memoria Reservada": rss.rss, "Path de Ejecucion": directorio, "Process Id ": id})
 
+})
+
+const computo = fork("./src/utils/forks_utils.js")
+
+// API RANDOMIZATION
+router.get("/api/randoms", (req, res) => {
+    const cant = Number(req.query.cant) || 100000000
+
+    computo.on("message", (resultado) =>{
+        res.status(200).json(resultado)
+    })
+    computo.send(cant)
 })
 
 export default router
