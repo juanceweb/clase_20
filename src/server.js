@@ -6,7 +6,7 @@ import session from "express-session"
 import AuthRouter from "./routers/auth_route.js"
 import passport from "./utils/passport_util.js"
 import "./config/db.js"
-import args from "./utils/minimist_util.js"
+// import args from "./utils/minimist_util.js"
 
 
 
@@ -40,8 +40,8 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use("/", AuthRouter)
 
-const PORT = args.PORT || 8000
+const PORT = process.argv[2] || 8080
 const server = app.listen(PORT, () => {
-console.log(`Servidor en el puerto http://localhost:${PORT}`)
+console.log(`Servidor en el puerto http://localhost:${PORT} - PID ${process.pid}`)
 });
 server.on('error', (err) =>{console.log(err)});
