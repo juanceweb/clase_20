@@ -6,7 +6,9 @@ import session from "express-session"
 import AuthRouter from "./routers/auth_route.js"
 import passport from "./utils/passport_util.js"
 import "./config/db.js"
-// import args from "./utils/minimist_util.js"
+import compression from 'compression'
+//import args from "./utils/minimist_util.js"
+import logger from "./loggers/winston.js"
 
 
 
@@ -14,6 +16,8 @@ const app = express();
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser(process.env.SECRET))
+
+app.use(compression())
 
 app.set("views", "./src/views")
 app.set("view engine", "hbs")
@@ -40,8 +44,14 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use("/", AuthRouter)
 
+
+// app.all("*",(req, res) =>{
+//     console.log("No existe esta ruta");
+// })
+
+
 const PORT = process.argv[2] || 8080
 const server = app.listen(PORT, () => {
-console.log(`Servidor en el puerto http://localhost:${PORT} - PID ${process.pid}`)
+logger.log("info",`Servidor en el puerto http://localhost:${PORT} - PID ${process.pid}`)
 });
-server.on('error', (err) =>{console.log(err)});
+server.on('error', (err) =>{logger.log("error", err)});
