@@ -29,7 +29,7 @@ const router = express.Router();
 router.get("/", AuthController.getIndex)
 
 // PRODUCTOS
-router.get("/productos", AuthController.getProductos)
+router.get("/productos/", AuthController.getProductos)
 
 router.get("/productos/:id", AuthController.GetOneProducto)
 
