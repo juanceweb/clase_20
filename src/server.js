@@ -11,17 +11,20 @@ import compression from 'compression'
 import logger from "./loggers/winston.js"
 
 
-
+// CONFIGURACION DE LA APP
 const app = express();
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser(process.env.SECRET))
-
 app.use(compression())
 
+
+// CONFIGURACION DE HBS
 app.set("views", "./src/views")
 app.set("view engine", "hbs")
 
+
+// CONFIGURACION DE DONDE BUSCA LOS HTML
 app.engine("hbs", 
     engine({
         extended: ".hbs",
@@ -29,6 +32,8 @@ app.engine("hbs",
         layoutsDir: path.resolve() + "/src/views/layouts"
 }),)
 
+
+// CONFIGURACION DE SESSION
 app.use(
     session({
         secret: process.env.SECRET,
@@ -40,6 +45,8 @@ app.use(
         saveUninitialized: true,
 }),)
 
+
+// CONFIGURACION DE PASSPORT
 app.use(passport.initialize())
 app.use(passport.session())
 app.use("/", AuthRouter)
@@ -50,7 +57,7 @@ app.use("/", AuthRouter)
 // })
 
 
-// const PORT = process.argv[2] || 8080
+// CONFIGURACION DE SERVER
 const server = app.listen(process.env.PORT, () => {
 logger.log("info",`Servidor en el puerto http://localhost:${process.env.PORT} - PID ${process.pid}`)
 });

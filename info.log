@@ -88,3 +88,91 @@
 {"level":"info","message":"Servidor en el puerto http://localhost:8000 - PID 3185"}
 {"level":"info","message":"MODO => DEV"}
 {"level":"info","message":"Servidor en el puerto http://localhost:8000 - PID 3229"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8000 - PID 531"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8000 - PID 570"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8000 - PID 609"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8000 - PID 648"}
+{"level":"info","message":"MODO => DEV"}
+{"address":"::","code":"EADDRINUSE","errno":-98,"level":"error","port":8000,"syscall":"listen"}
+{"level":"info","message":"MODO => DEV"}
+{"address":"::","code":"EADDRINUSE","errno":-98,"level":"error","port":8000,"syscall":"listen"}
+{"level":"info","message":"MODO => DEV"}
+{"address":"::","code":"EADDRINUSE","errno":-98,"level":"error","port":8000,"syscall":"listen"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 803"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 842"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 881"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 920"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 959"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 998"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1037"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1076"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1115"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1193"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1232"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1271"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1310"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1349"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1388"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1427"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1466"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1505"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1544"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1583"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1622"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1661"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1700"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1739"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1778"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1817"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1856"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1895"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1934"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1973"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 2012"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 2051"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 2090"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 2129"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 2168"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 2283"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 2322"}

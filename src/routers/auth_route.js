@@ -29,15 +29,17 @@ const router = express.Router();
 router.get("/", AuthController.getIndex)
 
 // PRODUCTOS
-router.get("/productos/add", AuthController.addProducto)
+// router.get("/productos/add", AuthController.addProducto)
 
 router.get("/productos", AuthController.getProductos)
 
-router.get("/productos/:id", AuthController.GetOneProducto)
+router.get("/productos/:id", AuthController.getOneProducto)
 
-router.get("/carrito", AuthController.VerCarrito)
+// CARRITO
 
-router.get("/carrito/:id", AuthController.AddCarrito)
+router.get("/carrito", AuthController.verCarrito)
+
+router.get("/carrito/:id", AuthController.addElementoAlCarrito)
 
 // SIGN UP
 router.get("/signup", AuthController.getSignup)
