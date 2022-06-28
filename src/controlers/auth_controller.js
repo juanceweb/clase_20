@@ -10,7 +10,6 @@ export function getSignup(req, res) {
 
 export function postSignup(req, res) {
     const user = req.user;
-    console.log(user);
     res.sendFile(path.resolve() + "/src/views/login.html")
 }
 
@@ -41,8 +40,7 @@ export function getLogin(req, res) {
 
 export function postLogin(req, res) {
     const user = req.user;
-    console.log(user);
-    res.sendFile(path.resolve()+"/src/views/index.html")
+    res.render("index", {})
 }
 
 export function failLogin(req, res) {
