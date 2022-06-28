@@ -51,7 +51,7 @@ app.use("/", AuthRouter)
 
 
 // const PORT = process.argv[2] || 8080
-const server = app.listen(process.argv[2], () => {
-logger.log("info",`Servidor en el puerto http://localhost:${process.argv[2]} - PID ${process.pid}`)
+const server = app.listen(process.env.PORT, () => {
+logger.log("info",`Servidor en el puerto http://localhost:${process.env.PORT} - PID ${process.pid}`)
 });
 server.on('error', (err) =>{logger.log("error", err)});
