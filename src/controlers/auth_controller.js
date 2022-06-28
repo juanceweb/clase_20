@@ -27,7 +27,7 @@ export function getLogin(req, res) {
     if (req.isAuthenticated()) {
         const user = req.user
         console.log("Usuario logueado!");
-        res.render("login-ok", {
+        res.render("index", {
             usuario: user.username,
             nombre: user.firstName,
             apellido: user.lastName,
@@ -82,10 +82,10 @@ export async function GetOneProducto(req, res) {
     res.render("producto_detalle", {producto: one_producto})
 }
 
-// export async function addProducto (req, res) {
-//     let producto = {nombre:"batidora", descripcion:"descripcion batidora", codigo: 125, foto:"foto_batidora", precio: 200, stock: 10}
-//     res.json(await productos.createData(producto))
-// }
+export async function addProducto (req, res) {
+    let producto = {nombre:"batidora", descripcion:"descripcion batidora", codigo: 125, foto:"foto_batidora", precio: 200, stock: 10}
+    res.json(await productos.createData(producto))
+}
 
 // CARRITO
 
