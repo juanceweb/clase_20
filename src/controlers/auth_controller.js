@@ -83,7 +83,7 @@ export async function GetOneProducto(req, res) {
 }
 
 export async function addProducto (req, res) {
-    let producto = {nombre:"batidora", descripcion:"descripcion batidora", codigo: 125, foto:"foto_batidora", precio: 200, stock: 10}
+    let producto = {nombre:"afeitadora", descripcion:"descripcion afeitadora", codigo: 126, foto:"foto_afeitadora", precio: 250, stock: 10}
     res.json(await productos.createData(producto))
 }
 
