@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">INICIO</a>
+        <a class="navbar-brand" href="#">INICIO</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -29,11 +29,13 @@
     </div>
 </nav>
 
+
+
 <div class="container text-center my-3">
     <div class="jumbotron" style="background-color: salmon;color: white;">
-        <h1>USER ERROR SIGNUP</h1>
-
-        <button class="btn btn-warning my-5" onclick="volver()">VOLVER</button>
+        <h1>ESTE ES EL INDEX</h1>
+        <h2>PUERTO: {{PORT}}</h2>
+        <h3>PID: {{pid}}</h3>
     </div>
 </div>
 
@@ -44,6 +46,6 @@
 
     function volver() {
         console.log('volver');
-        redireccionar('/signup')
+        redireccionar('/')
     }
 </script>

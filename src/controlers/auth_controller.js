@@ -1,4 +1,6 @@
 import path from "path"
+import ContenedorProductos from "../models/productos_models.js"
+import ContenedorCarrito from "../models/carrito_model.js";
 
 // SIGN UP
 
@@ -55,3 +57,53 @@ export function logout(req, res) {
     req.logout()
     res.sendFile(path.resolve() + "/src/views/login.html")
 }
+
+// INDEX
+
+export function getIndex(req, res) {
+    res.render("index", {
+        pid: process.pid,
+        PORT: process.argv[2]
+    })
+}
+
+// PRODUCTOS
+
+const productos = new ContenedorProductos()
+
+export async function getProductos(req, res) {
+    const all_productos = await productos.readAllData()
+    res.render("productos", {lista_productos : all_productos})
+}
+
+export async function GetOneProducto(req, res) {
+    const { id } = req.params;
+    const one_producto = await productos.readOneData({_id:id})
+    res.render("producto_detalle", {producto: one_producto})
+}
+
+// export async function addProducto (req, res) {
+//     let producto = {nombre:"batidora", descripcion:"descripcion batidora", codigo: 125, foto:"foto_batidora", precio: 200, stock: 10}
+//     res.json(await productos.createData(producto))
+// }
+
+// CARRITO
+
+const carrito = new ContenedorCarrito()
+
+export async function AddCarrito(req, res) {
+    const { id } = req.params;
+    const one_producto = await productos.readOneData({_id:id})
+    carrito.add_carrito(one_producto)
+    const cart = carrito.ver_carrito()
+    res.render("carrito", {lista_carrito: cart})
+}
+
+export async function VerCarrito(req, res) {
+    const cart = carrito.ver_carrito()
+    res.render("carrito", {lista_carrito: cart})
+}
+
+// export async function getCarrito(req, res){ 
+//     const ver_carrito = await
+// }

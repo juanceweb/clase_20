@@ -6,30 +6,36 @@ import args from "../utils/minimist_util.js"
 // import { fork } from 'child_process'
 import os from 'os'
 
-function  calculo(cant) {
-    const vueltas = Array.from(Array(cant).keys())
-    const lista = {}
+// function  calculo(cant) {
+//     const vueltas = Array.from(Array(cant).keys())
+//     const lista = {}
 
-    for (const number of vueltas) {
-        const random = Math.floor(Math.random() * 1000) + 1
-        if (random in lista) {
-            lista[random] += 1
-        } 
-        else {
-        lista[random] = 1
-        }
-    }
-    return lista
-}
+//     for (const number of vueltas) {
+//         const random = Math.floor(Math.random() * 1000) + 1
+//         if (random in lista) {
+//             lista[random] += 1
+//         } 
+//         else {
+//         lista[random] = 1
+//         }
+//     }
+//     return lista
+// }
 
 
 const router = express.Router();
 
+// INDEX
+router.get("/", AuthController.getIndex)
 
-router.get("/", (req,res) => {
-    res.send(`PID ${process.pid} y PORT ${process.argv[2]}`)
-})
+// PRODUCTOS
+router.get("/productos", AuthController.getProductos)
 
+router.get("/productos/:id", AuthController.GetOneProducto)
+
+router.get("/carrito", AuthController.VerCarrito)
+
+router.get("/carrito/:id", AuthController.AddCarrito)
 
 // SIGN UP
 router.get("/signup", AuthController.getSignup)
@@ -70,25 +76,25 @@ router.get("/info", (req, res) => {
 // const computo = fork("./src/utils/forks_utils.js", [])
 
 // API RANDOMIZATION
-router.get("/api/randoms", (req, res) => {
-    const cant = Number(req.query.cant) || 1000000
+// router.get("/api/randoms", (req, res) => {
+//     const cant = Number(req.query.cant) || 1000000
 
-    const result = calculo(cant)
-    const id = process.pid
-    const port = process.argv[2]
+//     const result = calculo(cant)
+//     const id = process.pid
+//     const port = process.argv[2]
 
-    res.status(200).json({"PORT": port, "Process Id": id, "Resultados" : result})
-    // computo.on("message", (resultado) =>{
-    //     if (resultado) {
-    //         res.status(200).send(resultado)
-    //     }
-    //     else {
-    //         console.log("wololo")
-    //     }
-    // })
+//     res.status(200).json({"PORT": port, "Process Id": id, "Resultados" : result})
+//     // computo.on("message", (resultado) =>{
+//     //     if (resultado) {
+//     //         res.status(200).send(resultado)
+//     //     }
+//     //     else {
+//     //         console.log("wololo")
+//     //     }
+//     // })
 
-    // computo.send(cant)
-})
+//     // computo.send(cant)
+// })
 
 
 export default router
