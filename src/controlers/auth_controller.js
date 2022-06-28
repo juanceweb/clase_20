@@ -61,7 +61,7 @@ export function logout(req, res) {
 // INDEX
 
 export function getIndex(req, res) {
-    res.render("index", {
+    res.status(200).render("index", {
         pid: process.pid,
         PORT: process.argv[2]
     })

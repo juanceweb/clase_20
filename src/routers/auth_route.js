@@ -26,7 +26,7 @@ import os from 'os'
 const router = express.Router();
 
 // INDEX
-router.get("", AuthController.getIndex)
+router.get("/", AuthController.getIndex)
 
 // PRODUCTOS
 router.get("/productos", AuthController.getProductos)
