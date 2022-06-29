@@ -1,6 +1,7 @@
 import path from "path"
 import ContenedorProductos from "../models/productos_models.js"
 import ContenedorCarrito from "../models/carrito_model.js";
+import sendMailGmail from "../utils/nodemailer_util.js"
 
 // CHECK USER LOG IN OR NOT US
 function checkUsername(req) {
@@ -21,6 +22,9 @@ function checkEmail(req) {
     }
 }
 
+const productos = new ContenedorProductos()
+
+const carrito = new ContenedorCarrito()
 
 // SIGN UP
 
@@ -29,6 +33,12 @@ export function getSignup(req, res) {
 }
 
 export function postSignup(req, res) {
+    let mail = `Hubo un nuevo registro!
+Usuario: ${req.user.username}
+Nombre: ${req.user.firstName}
+Apellido: ${req.user.lastName}
+Email: ${req.user.email}`
+    sendMailGmail("nuevo registro", mail)
     res.sendFile(path.resolve() + "/src/views/login.html")
 }
 
@@ -92,7 +102,6 @@ export function getIndex(req, res) {
 
 // PRODUCTOS
 
-const productos = new ContenedorProductos()
 
 export async function getProductos(req, res) {
     const all_productos = await productos.readAllData()
@@ -154,7 +163,6 @@ export function verCarrito(req, res) {
     })
 }
 
-const carrito = new ContenedorCarrito()
 
 export function confirmarCarrito(req, res) {
     const cookie = req.signedCookies.carrito
@@ -168,6 +176,8 @@ export function confirmarCarrito(req, res) {
 
     carrito.createData(cart)
 
+    sendMailGmail("nuevo pedido", JSON.stringify(cart))
+
     res.clearCookie("carrito").render("index", {
         usuario: username,
         pid: process.pid,
@@ -175,6 +185,7 @@ export function confirmarCarrito(req, res) {
     })
     
 }
+
 
 export function vaciarCarrito(req, res) {
     let username = checkUsername(req)
