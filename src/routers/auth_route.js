@@ -39,7 +39,13 @@ router.get("/productos/:id", AuthController.getOneProducto)
 
 router.get("/carrito", AuthController.verCarrito)
 
+router.get("/carrito/confirmar", AuthController.confirmarCarrito)
+
+router.get("/carrito/vaciar", AuthController.vaciarCarrito)
+
 router.get("/carrito/:id", AuthController.addElementoAlCarrito)
+
+
 
 // SIGN UP
 router.get("/signup", AuthController.getSignup)

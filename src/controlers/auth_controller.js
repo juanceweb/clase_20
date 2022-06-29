@@ -3,12 +3,21 @@ import ContenedorProductos from "../models/productos_models.js"
 import ContenedorCarrito from "../models/carrito_model.js";
 
 // CHECK USER LOG IN OR NOT US
-function checkUser(req) {
+function checkUsername(req) {
     const user = req.user;
     if (user === undefined ) {
         return null 
     } else {
         return user.username
+    }
+}
+
+function checkEmail(req) {
+    const user = req.user;
+    if (user === undefined ) {
+        return null 
+    } else {
+        return user.email
     }
 }
 
@@ -24,7 +33,7 @@ export function postSignup(req, res) {
 }
 
 export function failSignup(req, res){
-    let username = checkUser(req)
+    let username = checkUsername(req)
     res.render("signup-error",{
             usuario: username,
         })
@@ -56,7 +65,7 @@ export function postLogin(req, res) {
 }
 
 export function failLogin(req, res) {
-    let username = checkUser(req)
+    let username = checkUsername(req)
     res.render("login-error",{
         usuario: username,
     })
@@ -72,7 +81,7 @@ export function logout(req, res) {
 // INDEX
 
 export function getIndex(req, res) {
-    let username = checkUser(req)
+    let username = checkUsername(req)
     res.render("index", {
         usuario: username,
         pid: process.pid,
@@ -87,7 +96,7 @@ const productos = new ContenedorProductos()
 
 export async function getProductos(req, res) {
     const all_productos = await productos.readAllData()
-    let username = checkUser(req)
+    let username = checkUsername(req)
     res.render("productos", {
         lista_productos : all_productos,
         usuario: username,
@@ -98,7 +107,7 @@ export async function getProductos(req, res) {
 export async function getOneProducto(req, res) {
     const { id } = req.params;
     const one_producto = await productos.readOneData({_id:id})
-    let username = checkUser(req)
+    let username = checkUsername(req)
     res.render("producto_detalle", {
             producto: one_producto,
             usuario: username,
@@ -118,7 +127,7 @@ export async function addElementoAlCarrito(req, res) {
     const one_producto = await productos.readOneData({_id:id})
     one_producto.cantidad = 1
     let cookie = req.signedCookies.carrito
-    let username = checkUser(req)
+    let username = checkUsername(req)
     if (cookie == undefined || cookie == false){
         cookie = []
         cookie.push(one_producto)
@@ -136,11 +145,41 @@ export async function addElementoAlCarrito(req, res) {
     
 }
 
-export async function verCarrito(req, res) {
+export function verCarrito(req, res) {
     const cookie = req.signedCookies.carrito
-    let username = checkUser(req)
+    let username = checkUsername(req)
     res.render("carrito", {
         lista_carrito: cookie,
+        usuario:username,
+    })
+}
+
+const carrito = new ContenedorCarrito()
+
+export function confirmarCarrito(req, res) {
+    const cookie = req.signedCookies.carrito
+    const total = cookie.reduce( (acc, item) => {
+        return acc += item.precio;
+    }, 0);
+    const username = checkUsername(req)    
+    const email = checkEmail(req)
+
+    const cart = {productos: cookie, total: total, nombre_comprador: username, mail: email}
+
+    carrito.createData(cart)
+
+    res.clearCookie("carrito").render("index", {
+        usuario: username,
+        pid: process.pid,
+        PORT: process.argv[2]
+    })
+    
+}
+
+export function vaciarCarrito(req, res) {
+    let username = checkUsername(req)
+    res.clearCookie("carrito").render("carrito", {
+        lista_carrito: [],
         usuario:username,
     })
 }
