@@ -234,3 +234,5 @@
 {"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1008"}
 {"level":"info","message":"MODO => DEV"}
 {"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 1046"}
+{"level":"info","message":"MODO => DEV"}
+{"level":"info","message":"Servidor en el puerto http://localhost:8080 - PID 331"}
