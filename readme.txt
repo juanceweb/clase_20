@@ -1,1 +1,9 @@
 entrega clase 20
+
+Hola Matias, como andas? Te dejo una consulta por aca...
+Estuve haciendo que mongo abra y cierre la conexion cada vez que se necesita la base de datos...
+Con productos y el carrito funciona joya (si bien ahora tarda mas cada vez que entras a productos, porque antes la conexion estaba abierta siempre)
+Pero me surge un error con el registro de usuario y el logeo de usuario...
+Si intentas registrarte o logearte, el primer intento funciona, pero inmediatamente, cualquier intento de moverte por la pagina genera un error de conexion con MongoClient
+Y sinceramente me rompi la cabeza todo un dia viendo que puede ser, si vos te das una idea de cual es el problema seria un golazo
+Quedo atento a tu respuesta! y gracias!
