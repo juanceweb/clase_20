@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+      <a class="navbar-brand" href="/">INICIO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/productos">PRODUCTOS</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/carrito">CARRITO</a>
+              </li>
+          </ul>
+          <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+          <ul class="navbar-nav mb-2 mb-lg-0">
+          {{#if usuario}}
+          <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/perfil">Bienvenido {{usuario}}!</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/usuario/logout">Logout</a>
+          </li>
+          {{else}}          
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/usuario/signup">SIGN UP</a>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/usuario/login">LOGIN</a>
+              </li>
+          {{/if}}
+          </ul>
+      </div>
+  </div>
+</nav>
+
+
+<div class="container my-5">
+  <div class="jumbotron">
+    <h1>SIGNUP</h1>
+    <br>
+    <form class="form" role="form" action="/usuario/signup" method="POST" autocomplete="off">
+      <div class="form-group">
+        <input name='username' placeholder="Nombre" class="form-control" type="text" required>
+      </div>
+      <div class="form-group">
+        <input name='password' placeholder="Password" class="form-control" type="password" required>
+      </div>
+      <br>
+      <div class="form-group">
+        <input name='firstName' placeholder="firstname" class="form-control" type="text" required>
+      </div>
+      <div class="form-group">
+        <input name='lastName' placeholder="lastname" class="form-control" type="text" required>
+      </div>
+      <div class="form-group">
+        <input name='email' placeholder="email" class="form-control" type="email" required>
+      </div>
+      <div class="form-group">
+        <input class="btn btn-success my-3" type="submit" value="Singup">
+      </div>
+    </form>
+  </div>
+</div>

@@ -8,7 +8,7 @@
     "8080": "pm2 start ./src/server.js --name='8080' --watch -- 8080",
     "8085": "pm2 start ./src/server.js --name='8085' --watch -i max -- 8085",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --inspect ./src/server.js 8000 DEV"
+    "start": "nodemon --inspect ./src/server.js DEV"
   },
   "keywords": [],
   "author": "",

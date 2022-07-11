@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">INICIO</a>
+        <a class="navbar-brand" href="/readme.txt">INICIO</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,14 +23,14 @@
                 <a class="nav-link active" aria-current="page" href="/perfil">Bienvenido {{usuario}}!</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
+                <a class="nav-link active" aria-current="page" href="/usuario/logout">Logout</a>
             </li>
             {{else}}
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/signup">SIGN UP</a>
+                <a class="nav-link active" aria-current="page" href="/usuario/signup">SIGN UP</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/login">LOGIN</a>
+                <a class="nav-link active" aria-current="page" href="/usuario/login">LOGIN</a>
                 </li>
             {{/if}}
             </ul>
@@ -52,13 +52,4 @@
     </div>
 </div>
 
-<script>
-    function redireccionar(pagina) {
-        location.href = pagina;
-    } 
 
-    function logout() {
-        console.log('logout');
-        redireccionar('/logout')
-    }
-</script>

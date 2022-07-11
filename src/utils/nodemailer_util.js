@@ -23,7 +23,7 @@ export default async function sendMailGmail(titulo, texto) {
 
     try {
         const response = await transporterGmail.sendMail(mailOptions)
-        console.log(response);
+        console.log("Mail Enviado!");
         
     } catch (error) {
         console.log(error);
