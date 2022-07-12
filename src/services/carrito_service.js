@@ -1,10 +1,9 @@
-// import CarritoDaoBd from "../daos/carrito_dao/carrito_dao_mongo,js"
-import CarritoDaoBd from "../daos/carrito_dao/carrito_dao_file.js"
+import CarritoDaoFactory from "../daos/carrito_dao/carrito_dao_factory.js";
 
 export default class ServiceCarritos {
 
     constructor() {
-        this.model = new CarritoDaoBd()
+        this.model = CarritoDaoFactory.getDao()
     }
 
     async createData(data) {

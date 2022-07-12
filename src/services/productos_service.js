@@ -1,11 +1,10 @@
-//import ProductosDaoBd from "../daos/productos_dao/productos_dao_mongo.js";
-import ProductosDaoBd from "../daos/productos_dao/productos_dao_file.js";
+import ProductosDaoFactory from "../daos/productos_dao/productos_dao_factory.js";
 
 
 export default class ServiceProductos {
 
     constructor() {
-        this.model = new ProductosDaoBd();
+        this.model = ProductosDaoFactory.getDao()
     }
 
     async createData(data) {
